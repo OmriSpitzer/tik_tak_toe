@@ -1,4 +1,4 @@
-from gameBuilder import Builder, TikTakToeBuilder
+from gameBuilder import Builder, TicTacTowBuilder
 import random
 
 
@@ -13,7 +13,7 @@ class GameDirector:
         self._builder = new_builder
 
     def make_game(self):
-        if isinstance(self._builder, TikTakToeBuilder):
+        if isinstance(self._builder, TicTacTowBuilder):
             self._builder.build_board()
             self._computer = self._builder.build_player("Computer")
             self._player = self._builder.build_player("Omri Spitzer")
@@ -52,9 +52,4 @@ class GameDirector:
         empty_places = self.generate_empty_places_array()
         return len(empty_places) == 0
 
-    def check_win(self):
-        # check rows
-        for arr in self._board.get_matrix():
-            if isinstance(arr[0], arr[1]) and isinstance(arr[0], arr[2]):
-                return ()
 
